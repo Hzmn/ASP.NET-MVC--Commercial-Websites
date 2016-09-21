@@ -1,0 +1,221 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>京东-欢迎登录</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <script src="~/Scripts/JDjavascript.js" type="text/javascript"></script>
+    @*<script src="files/wl_002.js" async="" type="text/javascript"></script>
+    <script src="files/wl.js" async="" type="text/javascript"></script>
+    <script type="text/javascript" src="files/jquery-1.js"></script>*@
+</head>
+<body>
+    <!-- SDK 登录 -->
+    <div class="w">
+        <div id="logo">
+            <a href="https://www.jd.com/">
+                <img src="~/Content/Image/Login/logo.png" alt="京东" height="60" width="170">
+            </a>
+            <b></b>
+        </div>
+    </div>
+    <div id="content">
+        <div class="login-wrap">
+            <div class="w">
+                <div class="login-form">
+                    <div class="login-tab login-tab-l"  onclick="qh()">
+                        <a class="check">
+                            扫码登录
+                        </a>
+                    </div>
+                    <div class="login-tab login-tab-r" onclick="qh()">
+                        <a class="check">
+                            账户登录
+                        </a>
+                    </div>
+                    <div style="visibility: visible;" class="login-box">
+                        <div class="mt tab-h">
+                            ::after
+                        </div>
+                        <div class="msg-wrap">
+                            <div class="msg-warn"><b></b>公共场所不建议自动登录，以防账号丢失</div>
+                            <div style="display: none;" class="msg-error hide"><b></b></div>
+                        </div>
+                        <div class="mc">
+                            <div class="form">
+                                <form id="formlogin" method="post" onsubmit="return false;">
+                                   
+                                     @*<input id="uuid" name="uuid" value="aa7f7913-89ea-49cb-87d5-b30163ddb412" type="hidden">
+                                    <input name="machineNet" id="machineNet" value="" class="hide" type="hidden">
+                                    <input name="machineCpu" id="machineCpu" value="" class="hide" type="hidden">
+                                    <input name="machineDisk" id="machineDisk" value="" class="hide" type="hidden">
+                                    <input name="eid" id="eid" value="13315125CFE56B31830873EF69B0B7B38195C75B98D95013B439FF5253D43865EBB8BF4BBF95904C9BFED81F8C7A11AB" class="hide" type="hidden">
+                                    <input name="fp" id="sessionId" value="f9b99e1c2ef6b68b4d1ccb402815448a" class="hide" type="hidden">
+                                    <input name="_t" id="token" value="_ntuhSsm" class="hide" type="hidden">
+                                    <input name="loginType" id="loginType" value="f" class="hidden" type="hidden">
+                                    <input name="cEtfGSoiwm" value="YHYQD" type="hidden">*@
+
+                                    <div class="item item-fore1">
+                                        <label for="loginname" class="login-label name-label"></label>
+                                        <input id="loginname" class="itxt" name="loginname" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机" type="text">
+                                        <span class="clear-btn"></span>
+                                    </div>
+                                    <div style="visibility: visible;" id="entry" class="item item-fore2">
+                                        <label class="login-label pwd-label" for="nloginpwd"></label>
+                                        <label id="sloginpwd" style="display: none;">
+                                        </label>
+                                        <input id="nloginpwd" name="nloginpwd" class="itxt itxt-error" tabindex="2" autocomplete="off" placeholder="密码" type="password">
+                                        <input name="loginpwd" id="loginpwd" value="" class="hide" type="hidden">
+                                        <span class="clear-btn"></span>
+                                        <span style="display: none;" class="capslock"><b></b>大小写锁定已打开</span>
+                                    </div>
+                                    <div class="item item-fore3">
+                                        <div class="safe">
+                                            <span>
+                                                <input checked="checked" id="autoLogin" name="chkRememberMe" class="jdcheckbox" tabindex="3" clstag="pageclick|keycount|20150112ABD|6" type="checkbox">
+                                                <label for="">自动登录</label>
+                                            </span>
+                                            <span class="forget-pw-safe">
+                                                <a href="https://passport.jd.com/uc/links?tag=safe" class="" target="_blank" clstag="pageclick|keycount|201607144|3">忘记密码</a>
+                                            </span>
+                                        </div>
+                                        <div class="updata" id="updata" style="display:none;">
+                                            安全控件升级了!<a href="javascript:void(0);" class="up-two">立即更新</a> <a class="up-one" href="javascript:void(0);" onclick="$('#updata').hide();"></a>
+                                        </div>
+                                    </div>
+                                    <div class="item item-fore5">
+                                        <div class="login-btn">
+                                            <a href="javascript:;" class="btn-img btn-entry" id="loginsubmit" tabindex="6" clstag="pageclick|keycount|201607144|3">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: none;" class="qrcode-login">
+                        <div class="mc">
+                            <div class="qrcode-error-2016">
+                                <div class="qrcode-error-mask">
+                                </div>
+                                <p class="err-cont">服务器出错</p>
+                                <a href="javascript:void(0)" class="refresh-btn">刷新</a>
+                            </div>
+                            <div class="qrcode-main">
+                                <div class="qrcode-img">
+                                    <img src="京东-欢迎登录_files/548faf09N1acc240e.png" alt=""><div class="qrcode-error02 hide" id="J-qrcoderror">							<a href="#none">								<span class="error-icon"></span>								<div class="txt">网络开小差咯<span class="ml10">刷新二维码</span></div>							</a>						</div>
+                                </div>
+                                <div class="qrcode-help" style="display: none; "></div>
+                            </div>
+                            <div class="qrcode-panel">
+                                <ul>
+                                    <li class="fore1">
+                                        <a href="https://passport.jd.com/uc/links?tag=apps" target="_blank" clstag="pageclick|keycount|201607144|9">打开新版<span class="red">手机京东</span>，扫描二维码</a>
+                                    </li>
+                                    <li class="panel-line"></li>
+                                    <li><a href="https://passport.jd.com/uc/links?tag=help" target="_blank" clstag="pageclick|keycount|201607144|10">使用帮助</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coagent" style="display: block; visibility: visible;">
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0)" onclick="window.location='//qq.jd.com/new/wangyin/login.action'+window.location.search;return false;" clstag="pageclick|keycount|201607144|5">京东钱包</a>
+                                <span class="line">|</span>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="window.location='//qq.jd.com/new/qq/login.aspx'+window.location.search;return false;" clstag="pageclick|keycount|201607144|6">QQ</a>
+                                <span class="line">|</span>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="window.location='//qq.jd.com/new/wx/login.action'+window.location.search;return false;" clstag="pageclick|keycount|201607144|7">微信</a>
+                            </li>
+                            <li class="extra-r">
+                                <div>
+                                    <div class="regist-link"><a href="https://reg.jd.com/reg/person?ReturnUrl=http%3A%2F%2Fwww.jd.com" clstag="pageclick|keycount|201607144|8" target="_blank"><b></b>立即注册</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="login-banner" style="background-color: #e93854">
+                <div class="w">
+                    <div id="banner-bg" class="i-inner" style="background: url(/Content/Image/Login/bcgrd.png) 0px 0px no-repeat;background-color: #e93854">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w">
+        <div class="ar">
+            <a href="//surveys.jd.com/index.php?r=survey/index/sid/568245/lang/zh-Hans" target="_blank" class="q-link">
+                <b></b>
+                登录页面，调查问卷
+            </a>
+        </div>
+    </div>
+    <div class="w">
+        <div id="footer-2013">
+            <div class="links">
+                <a rel="nofollow" target="_blank" href="//www.jd.com/intro/about.aspx">
+                    关于我们
+                </a>
+                |
+                <a rel="nofollow" target="_blank" href="//www.jd.com/contact/">
+                    联系我们
+                </a>
+                |
+                <a rel="nofollow" target="_blank" href="//zhaopin.jd.com/">
+                    人才招聘
+                </a>
+                |
+                <a rel="nofollow" target="_blank" href="//www.jd.com/contact/joinin.aspx">
+                    商家入驻
+                </a>
+                |
+                <a rel="nofollow" target="_blank" href="//www.jd.com/intro/service.aspx">
+                    广告服务
+                </a>
+                |
+                <a rel="nofollow" target="_blank" href="//app.jd.com/">
+                    手机京东
+                </a>
+                |
+                <a target="_blank" href="/links.vm/club.jd.com/links.aspx">
+                    友情链接
+                </a>
+                |
+                <a target="_blank" href="//media.jd.com/">
+                    销售联盟
+                </a>
+                |
+                <a href="//club.jd.com/" target="_blank">
+                    京东社区
+                </a>
+                |
+                <a href="//gongyi.jd.com" target="_blank">
+                    京东公益
+                </a>
+                |
+                <a target="_blank" href="//en.jd.com/" clstag="pageclick|keycount|20150112ABD|9">English Site</a>
+            </div>
+            <div class="copyright">
+                Copyright&nbsp;©&nbsp;2004-2016&nbsp;&nbsp;京东JD.com&nbsp;版权所有
+            </div>
+        </div>
+    </div>
+    <!-- SDK 登录 -->
+
+    <div style="width:1px;height:1px;background:#FFF;display:inline-block;position:absolute;left:-2000px;top:-2000px;" id="com_ca_e_c_a_div_set"><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="com_ca_e_c_a_collect" height="0" align="middle" width="0"><param name="allowScriptAccess" value="always"><param name="allowFullScreen" value="false"><param name="movie" value="https://payrisk.jd.com/JdFp.swf?f3AB9D23F7A4B3C9B=13315125CFE56B31830873EF69B0B7B38195C75B98D95013B439FF5253D43865EBB8BF4BBF95904C9BFED81F8C7A11AB"><param name="quality" value="low"><param name="bgcolor" value="#ffffff">	<embed src="https://payrisk.jd.com/JdFp.swf?f3AB9D23F7A4B3C9B=13315125CFE56B31830873EF69B0B7B38195C75B98D95013B439FF5253D43865EBB8BF4BBF95904C9BFED81F8C7A11AB" quality="low" bgcolor="#ffffff" name="com_ca_e_c_a_collect" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" height="0" align="middle" width="0">
+        </object>
+    </div>
+    <div id="userdata_el" style="visibility: hidden; position: absolute;">
+
+    </div>
+</body>
+</html>

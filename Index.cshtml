@@ -1,0 +1,1739 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>京东首页</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link href="~/Scripts/mf-pattern/mF_tbhuabao.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.12.3.min.js"></script>
+    <script src="~/Scripts/mf-pattern/mF_taobaomall.js" type="text/javascript"></script>
+    <script src="/Scripts/mf-pattern/mF_tbhuabao.js" type="text/javascript"></script>
+    <script>
+        myFocus.set({ id: "w_3_c_c" });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".floor").click(function () {
+                if ($(this).hasClass("go-top")) {
+                    $("body").animate({ scrollTop: 0 })
+                }
+                else {
+                    $(this).addClass("flover").siblings().removeClass("flover");
+                    var a = $(this).attr("floor_num");
+                    var b = $("div[floor_num=" + a + "]").offset().top;
+                    $("body").animate({ scrollTop: b });
+                }
+            })
+
+            $(".close").click(function () {
+                $("#remo").remove()
+            });
+
+            $(".jqhover").mouseover(function () {
+                $(this).find("div.sub_hidden").css("display", "block");
+                $(this).addClass("w_3_hov");
+                $(this).find("span.spacer").css("display", "none");
+                $(this).find("a").css("color", "#863177");
+                $(this).find("div.icon").css("margin-left", "10px");
+                var t = $(this).find("div.icon").css("backgroundPosition");
+                var position = t.split(" ");
+                var x = parseInt(position[0]) - 30 + "px ";
+                var y = position[1];
+                $(this).find("div.icon").css({ "backgroundPosition": x + y, "backgroundColor": "white" });
+                var b = $("#w_3_c_l").offset().top;
+                var a = $(this).find("div.sub_hidden").offset().top;
+                var c = $(this).find("div.sub_hidden").height();
+                if (a + c >= b + 442) {
+                    $(this).find("div.sub_hidden").css("top", -(a + c - b - 442 + 1));
+                }
+            })
+            $(".jqhover").mouseout(function () {
+                $(this).find("div.sub_hidden").css("display", "none");
+                $(this).removeClass("w_3_hov");
+                $(this).find("span.spacer").css("display", "block");
+                $(this).find("a").css("color", "white");
+                var t = $(this).find("div.icon").css("backgroundPosition");
+                var position = t.split(" ");
+                var x = parseInt(position[0]) + 30 + "px ";
+                var y = position[1];
+                $(this).find("div.icon").css({ "backgroundPosition": x + y, "backgroundColor": "#863177" });
+            })
+        })
+
+
+    </script>
+    <script>
+        window.onload = function () {
+            var bod = document.getElementById("bod");
+            window.onmousewheel = function () {
+                if (bod.scrollTop < document.getElementById("floor1").scrollHeight) {
+                    $(".elev").css("display", "none");
+                }
+                else {
+                    $(".elev").css("display", "block");
+                }
+                for(var i=2;i<$(".floor").length;i++){
+                    if(bod.scrollTop < document.getElementById("floor"+i+"").scrollHeight)
+                    $(".floor").removeClass("flover");
+                    $("#floor" + i + "").addClass("flover");
+                }
+               
+            }
+
+
+
+            var share = document.getElementById("share");
+            var share_on = document.getElementById("share_on");
+            var upl = document.getElementById("upl");
+            var scrl = document.getElementById("scrl");
+            var all = document.getElementById("all");
+            var share_h = document.getElementById("share-h");
+            var turn = document.getElementById("turn");
+            all.onmouseover = function () {
+                share.style.backgroundColor = "white";
+                share.style.borderWidth = "0 1px";
+                share.style.borderColor = "#DDD";
+                share_on.style.marginLeft = 1 + "px";
+                turn.style.lineHeight = 10 + "px";
+                share_h.style.display = "block";
+                share_on.scrollTop = 25;
+            }
+            all.onmouseout = function () {
+                share.style.backgroundColor = "#F1F1F1";
+                share.style.border = null;
+                share_on.style.marginLeft = 2 + "px";
+                share_on.style.paddingTop = -12 + "px";
+                turn.style.lineHeight = 0 + "px";
+                share_h.style.display = "none";
+                share_on.scrollTop = 0;
+            }
+        }
+    </script>
+</head>
+<body id="bod">
+    <div id="head">
+        <div id="head-center">
+            <ul>
+                <li><a href="http://www.baidu.com">帮助中心</a> </li>
+                <li class="bar"></li>
+                <li id="all">
+                    <div id="share">
+                        <div id="share_on" style="width:13px;height:20px;overflow:hidden;float:left;padding-right:5px;margin-top:5px;margin-left:2px;">
+                            <img id="scrl" src="/Content/Image/Index/bqc.png" style="display:block;" />
+                        </div>
+                        <div id="turn" style="width:9px;height:6px;float:right;font-size:15px;margin:12px 10px 0 0;line-height:0;text-align:center;overflow:hidden;">◇</div>
+                        <span style="margin:0 5px;">关注全球购</span>
+                    </div>
+                    <div id="share-h">
+                        <img src="/Content/Image/Index/dm.png" style="line-height:30px;" />
+                        <div>扫一扫</div>
+                        <div style="color:blueviolet;">随时随地全球购</div>
+                    </div>
+                </li>
+                <li class="bar"></li>
+                <li><a href="http://www.baidu.com">我的订单</a></li>
+                <li class="bar"></li>
+                <li><a href="http://www.baidu.com">退出</a></li>
+                <li><a href="http://www.baidu.com">Username</a></li>
+                <li><a href="http://www.baidu.com">京东首页</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="remo">
+        <div id="remo_c">
+            <a href="http://www.baidu.com">
+                <img src="/Content/Image/Index/573a6eb7N8175c950.jpg" />
+            </a>
+            <div class="close">
+                <img src="/Content/Image/Index/close.png" />
+            </div>
+        </div>
+    </div>
+    <!--开头-->
+    <div id="wapper">
+        <!--京东logo begin-->
+        <div id="w_1">
+            <div id="w_1_1">
+                <a href="http://www.baidu.com" style="display:block;float:left;width:600px;height:140px;top:0;left:0;background-image:url(/Content/Image/Index/5.jpg)"></a>
+                <div id="s_car">
+                    <div id="search">
+                        <input id="serp" type="text" value="三星 大屏222" />
+                        <button id="serb"><div id="icon"></div></button>
+                    </div>
+                    <div id="car">
+                        <a href="http://www.baidu.com" style="font-size:12px;line-height:33px;float:left;margin-left:5px;">我的购物车</a>
+                        <div id="c_icon">
+                        </div>
+                    </div>
+                    <div id="links">
+                        <ul class="flo">
+                            <li><a href="http://www.baidu.com">HABA旗舰店</a></li>
+                            <li><a href="http://www.baidu.com">颂拓满减专场</a></li>
+                            <li><a href="http://www.baidu.com">199减100</a></li>
+                            <li><a href="http://www.baidu.com">丽贝乐首发</a></li>
+                            <li><a href="http://www.baidu.com">520</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="w_1_2"></div>
+            <div id="w_1_3"></div>
+        </div>
+        <!--end-->
+        <!--导航条-->
+        <div id="w_2">
+            <div id="w_2_c">
+                <div id="dropdownhead">
+
+                    <div id="" style="float:left;overflow:hidden;width:18px;height:10px;background:#863177 url(/Content/Image/Index/bqc.png) no-repeat -55px 0px;margin:17px 10px 17px 20px;">
+                    </div>
+                    <span style="float:right;margin-right:100px;font-size:15px;color:white;">全部商品分类</span>
+                </div>
+                <ul>
+                    <li><a href="http://www.baidu.com">首页</a></li>
+                    <li><a href="http://www.baidu.com">全球直采</a></li>
+                    <li><a href="http://www.baidu.com">母婴优选</a></li>
+                    <li><a href="http://www.baidu.com">全球特卖 </a></li>
+                    <li><a href="http://www.baidu.com">eBay精选</a></li>
+                    <li><a href="http://www.baidu.com">乐天馆</a></li>
+                    <li><a href="http://www.baidu.com">Rakuten市场</a></li>
+                </ul>
+                <div id="w_2_a">
+                    <a href="http://www.baidu.com" style="display:block;width:220px;height:70px;"></a>
+                </div>
+            </div>
+        </div>
+        <!--end-->
+        <!--左侧折叠菜单中间焦点图轮播右侧广告图-->
+        <div id="w_3">
+            <!--居中-->
+            <div id="w_3_c">
+                <!--以下三部分为左中右三个容器-->
+                <div id="w_3_c_l">
+                    <ul>
+                        <li class="jqhover">
+                            <div class="icon" style="background-position:-55px -59px;"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">奶粉尿裤</a>
+                            <a class="c_l_2" href="http://www.baidu.com">进口奶粉</a>
+                            <a class="c_l_2" href="http://www.baidu.com">大牌尿裤</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"></div>
+                                <div class="d_ad"></div>
+                            </div>
+                        </li>
+                        <li class="jqhover">
+                            <div class="icon" style="width:20px;height:16px;background-position:-55px -25px"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">母婴用品</a>
+                            <a class="c_l_2" href="http://www.baidu.com">洗护用具</a>
+                            <a class="c_l_2" href="http://www.baidu.com">安全座椅</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"></div>
+                                <div class="d_ad"></div>
+                            </div>
+                        </li>
+                        <li class="jqhover">
+                            <div class="icon" style="background-position:-55px -90px;"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">个护美妆</a>
+                            <a class="c_l_2" href="http://www.baidu.com">面部护肤</a>
+                            <a class="c_l_2" href="http://www.baidu.com">香水彩妆</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"></div>
+                                <div class="d_ad"></div>
+                            </div>
+                        </li>
+                        <li class="jqhover">
+                            <div class="icon" style="background-position:-55px -115px;"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">营养保健</a>
+                            <a class="c_l_2" href="http://www.baidu.com">调节免疫</a>
+                            <a class="c_l_2" href="http://www.baidu.com">美容养颜</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"></div>
+                                <div class="d_ad"></div>
+                            </div>
+                        </li>
+                        <li class="jqhover">
+                            <div class="icon" style="background-position:-55px -217px;"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">进口美食</a>
+                            <a class="c_l_2" href="http://www.baidu.com">进口牛奶</a>
+                            <a class="c_l_2" href="http://www.baidu.com">冲调饮品</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"></div>
+                                <div class="d_ad"></div>
+                            </div>
+                        </li>
+                        <li class="jqhover">
+                            <div class="icon" style="background-position:-55px -193px;"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">数码电器</a>
+                            <a class="c_l_2" href="http://www.baidu.com">手机数码</a>
+                            <a class="c_l_2" href="http://www.baidu.com">生活电器</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"></div>
+                                <div class="d_ad"></div>
+                            </div>
+                        </li>
+                        <li class="jqhover">
+                            <div class="icon" style="background-position:0px -193px;"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">钟表首饰</a>
+                            <a class="c_l_2" href="http://www.baidu.com">奢华男表</a>
+                            <a class="c_l_2" href="http://www.baidu.com">精致女表</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"></div>
+                                <div class="d_ad"></div>
+                            </div>
+                        </li>
+                        <li class="jqhover">
+                            <div class="icon" style="background-position:-55px -145px;"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">服装箱包</a>
+                            <a class="c_l_2" href="http://www.baidu.com">自营竞选</a>
+                            <a class="c_l_2" href="http://www.baidu.com">运动户外</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"></div>
+                                <div class="d_ad"></div>
+                            </div>
+                        </li>
+                        <li class="jqhover">
+                            <div class="icon" style="background-position:-55px -167px;"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">家具厨具</a>
+                            <a class="c_l_2" href="http://www.baidu.com">净水饮水</a>
+                            <a class="c_l_2" href="http://www.baidu.com">烹饪锅具</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"></div>
+                                <div class="d_ad"></div>
+                            </div>
+                        </li>
+                        <li class="jqhover">
+                            <div class="icon" style="background-position:-55px -240px;width:22px;"></div>
+                            <a class="c_l_1" href="http://www.baidu.com">汽车用品</a>
+                            <a class="c_l_2" href="http://www.baidu.com">润滑机油</a>
+                            <a class="c_l_2" href="http://www.baidu.com">行车记录</a>
+                            <span class="spacer"></span>
+                            <div class="sub_hidden">
+                                <div class="hidden_li">
+                                    <ul>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">贝亲</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">施巴</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">妙思乐</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">加州宝宝</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">小蜜蜂</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">艾维诺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">吸奶器</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">碗盘叉勺</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">辅食料理机</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕期营养</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">宝宝洗浴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">宝宝护肤</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">奶瓶奶嘴</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">牙胶安抚</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">产后塑身</a></li>
+                                        <li class="hidden_li_r"><a href="http://www.baidu.com">孕妈美容</a></li>
+                                        <li class="hidden_li_l"><a href="http://www.baidu.com">玩具乐器</a></li>
+                                    </ul>
+                                </div>
+                                <div class="t_ad"><a href="http://www.baidu.com"></a></div>
+                                <div class="d_ad"><a href="http://www.baidu.com"></a></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="w_3_c_c">
+                    <div class="pic">
+                        <ul>
+                            <li><img src="/Content/Image/Index/focus1.jpg" /></li>
+                            <li><img src="/Content/Image/Index/focus2.jpg" /></li>
+                            <li><img src="/Content/Image/Index/focus3.jpg" /></li>
+                            <li><img src="/Content/Image/Index/focus4.jpg" /></li>
+                            <li><img src="/Content/Image/Index/focus5.jpg" /></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="w_3_c_r">
+                    <a class="youyi adr"><img src="/Content/Image/Index/574d3980N2980bff3.png" /></a>
+                    <a class="youyi adr" style="margin-top:2px;"><img src="/Content/Image/Index/574d3991N2f21eb91.png" /></a>
+                </div>
+                <!--end-->
+            </div>
+            <!--end-->
+        </div>
+        <!--end-->
+        <!--下测广告-->
+        <div id="w_4">
+            <div id="w_4_c">
+                <a class="youyi w_4_c_ad" href="http://www.baidu.com">
+                    <div class="dis"><span style="color:white;font-size:18px;">4.9</span><span style="color:white;font-size:12px;">折</span></div>
+                    <img src="/Content/Image/Index/574c1ea0N743254e7.jpg" />
+                    <div class="country"><img class="flag" src="/Content/Image/Index/56ef59a3N655e01fe.jpg" />德国</div>
+                    <div class="titile">
+                        包邮德国进口威化饼Knoppers牛奶榛子巧克力5层威化饼干零食 10包*3条(限时秒杀)
+                    </div>
+                    <div class="price">¥78 <span class="gone">￥159</span></div>
+                </a>
+                <a class="youyi w_4_c_ad" href="http://www.baidu.com">
+                    <div class="dis"><span style="color:white;font-size:18px;">3.8</span><span style="color:white;font-size:12px;">折</span></div>
+                    <img src="/Content/Image/Index/5748045eNd47a34eb.jpg" />
+                    <div class="country"><img class="flag" src="/Content/Image/Index/56ef5965Nbf422059.jpg" />澳大利亚</div>
+                    <div class="titile">澳佳宝维骨力关节灵</div>
+                    <div class="price">¥208<span class="gone">¥500</span></div>
+                </a>
+                <a class="youyi w_4_c_ad" href="http://www.baidu.com">
+                    <div class="dis"><span style="color:white;font-size:18px;">8.9</span><span style="color:white;font-size:12px;">折</span></div>
+                    <img src="/Content/Image/Index/5748281fN6937798e.jpg" />
+                    <div class="country"><img class="flag" src="/Content/Image/Index/56ef596eN1a5972ae.jpg" />荷兰</div>
+                    <div class="titile">飞利浦剃须刀S5070 电动胡须刀</div>
+                    <div class="price">¥478 <span class="gone">￥590</span></div>
+                </a>
+                <a class="youyi w_4_c_ad" href="http://www.baidu.com">
+                    <div class="dis"><span style="color:white;font-size:18px;">7.2</span><span style="color:white;font-size:12px;">折</span></div>
+                    <img src="/Content/Image/Index/5747d4edNc4763c8c.jpg" />
+                    <div class="country"><img class="flag" src="/Content/Image/Index/56ef573cN881f7afe.jpg" />日本</div>
+                    <div class="titile">牛乳石碱cow无添加眼部卸妆油150ml</div>
+                    <div class="price">¥79<span class="gone">￥110</span></div>
+                </a>
+                <div style="position:absolute;top:0;right:0;">
+                    <img src="/Content/Image/Index/56a09c1bN071d2cba.png" />
+                </div>
+            </div>
+        </div>
+        <!--end-->
+    </div>
+    <!--end-->
+    <!--国家馆-->
+    <div id="distr">
+        <div id="dis_c">
+            <div style="height:39px;width:100%"></div>
+            <div id="dis_title">
+            </div>
+            <div id="dis_ad">
+                <a class="shadow_ad" href="http://www.baidu.com">
+                    <div class="shadow_ad_cont">
+                        <span class="shadow_ad_cn">日本馆</span>
+                        <span class="shadow_ad_en">Japan</span>
+                        <img style="display:block;width:25px;height:19px;margin-top:5px;" src="/Content/Image/Index/56ef573cN881f7afe.jpg" />
+                    </div>
+                    <img src="/Content/Image/Index/jp.png" style="float:right;" />
+                    <ul class="plus">
+                        <li class="l1"></li>
+                        <li class="l3"></li>
+                        <li class="l4"></li>
+                    </ul>
+                </a>
+                <a class="shadow_ad" href="http://www.baidu.com">
+                    <div class="shadow_ad_cont">
+                        <span class="shadow_ad_cn">韩国馆</span>
+                        <span class="shadow_ad_en">South Korea</span>
+                        <img style="display:block;width:25px;height:19px;margin-top:5px;" src="/Content/Image/Index/56ef594eN1a06eb0f.jpg" />
+                    </div>
+                    <img src="/Content/Image/Index/hg.jpg" style="float:right;" />
+                    <ul class="plus">
+                        <li class="l2"></li>
+                        <li class="l3"></li>
+                        <li class="l4"></li>
+                    </ul>
+                </a>
+                <a class="shadow_ad" href="http://www.baidu.com">
+                    <div class="shadow_ad_cont">
+                        <span class="shadow_ad_cn">美国馆</span>
+                        <span class="shadow_ad_en">USA</span>
+                        <img style="display:block;width:25px;height:19px;margin-top:5px;" src="/Content/Image/Index/56ef57e8N959a3b23.jpg" />
+                    </div>
+                    <img src="/Content/Image/Index/mg.jpg" style="float:right;" />
+                    <ul class="plus">
+                        <li class="l1"></li>
+                        <li class="l2"></li>
+                        <li class="l3"></li>
+                        <li class="l4"></li>
+                    </ul>
+                </a>
+                <a class="shadow_ad" href="http://www.baidu.com">
+                    <div class="shadow_ad_cont">
+                        <span class="shadow_ad_cn">香港馆</span>
+                        <span class="shadow_ad_en">Hong Kong</span>
+                        <img style="display:block;width:25px;height:19px;margin-top:5px;" src="/Content/Image/Index/56ef5978N6a1825ca.jpg" />
+                    </div>
+                    <img src="/Content/Image/Index/xg.jpg" style="float:right;" />
+                    <ul class="plus">
+                        <li class="l1"></li>
+                        <li class="l2"></li>
+                        <li class="l3"></li>
+                        <li class="l4"></li>
+                    </ul>
+                </a>
+                <a class="shadow_ad" href="http://www.baidu.com">
+                    <div class="shadow_ad_cont">
+                        <span class="shadow_ad_cn">欧洲馆</span>
+                        <span class="shadow_ad_en">Europe</span>
+                        <img style="display:block;width:25px;height:19px;margin-top:5px;" src="/Content/Image/Index/57067167N3c9097d7.jpg" />
+                    </div>
+                    <img src="/Content/Image/Index/oz.jpg" style="float:right;" />
+                    <ul class="plus">
+                        <li class="l1"></li>
+                        <li class="l2"></li>
+                        <li class="l3"></li>
+                        <li class="l4"></li>
+                    </ul>
+                </a>
+                <a class="shadow_ad" href="http://www.baidu.com">
+                    <div class="shadow_ad_cont">
+                        <span class="shadow_ad_cn">澳洲馆</span>
+                        <span class="shadow_ad_en">Australia</span>
+                        <img style="display:block;width:25px;height:19px;margin-top:5px;" src="/Content/Image/Index/56ef5965Nbf422059.jpg" />
+                    </div>
+                    <img src="/Content/Image/Index/adly.jpg" style="float:right;" />
+                    <ul class="plus">
+                        <li class="l1"></li>
+                        <li class="l2"></li>
+                        <li class="l3"></li>
+                        <li class="l4"></li>
+                    </ul>
+                </a>
+                <a class="shadow_ad" href="http://www.baidu.com">
+                    <div class="shadow_ad_cont">
+                        <span class="shadow_ad_cn">台湾地区馆</span>
+                        <span class="shadow_ad_en">Taiwan</span>
+                        <img style="display:block;width:25px;height:19px;margin-top:5px;" src="/Content/Image/Index/5640202aN9f54502f.png" />
+                    </div>
+                    <img src="/Content/Image/Index/tw.jpg" style="float:right;" />
+                    <ul class="plus">
+                        <li class="l1"></li>
+                        <li class="l2"></li>
+                        <li class="l3"></li>
+                        <li class="l4"></li>
+                    </ul>
+                </a>
+                <a class="shadow_ad" href="http://www.baidu.com">
+                    <div class="shadow_ad_cont">
+                        <span class="shadow_ad_cn">加拿大馆</span>
+                        <span class="shadow_ad_en">Canada</span>
+                        <img style="display:block;width:25px;height:19px;margin-top:5px;" src="/Content/Image/Index/56ef6442N5b95c90c.jpg" />
+                    </div>
+                    <img src="/Content/Image/Index/jnd.jpg" style="float:right;" />
+                    <ul class="plus">
+                        <li class="l1"></li>
+                        <li class="l2"></li>
+                        <li class="l3"></li>
+                        <li class="l4"></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--end-->
+    <!--floor1-->
+    <div id="floor1" floor_num="1">
+        <div id="floor1_c">
+            <a class="f_title"></a>
+            <a class="f_c_con" href="http://www.baidu.com">
+                <div href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></div>
+                <div class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </div>
+            </a>
+            <a class="f_c_con" href="http://www.baidu.com">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <div class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </div>
+            </a>
+            <a class="f_c_con" style="border-width:0 0 1px 0" href="http://www.baidu.com">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <div class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </div>
+            </a>
+            <a class="f_c_con" href="http://www.baidu.com">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <div class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </div>
+            </a>
+            <a class="f_c_con" href="http://www.baidu.com">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <div class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" " />
+                </div>
+            </a>
+            <a class="f_c_con" style="border-width:0 0 1px 0" href="http://www.baidu.com">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <div class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor2-->
+    <div id="floor1" floor_num="2" href="http://www.baidu.com">
+        <div id="floor1_c">
+            <div class="f_title" style="background-position:0 -98px"></div>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <div href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></div>
+                <div class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </div>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" " />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor3-->
+    <div id="floor1" floor_num="3">
+        <div id="floor1_c">
+            <a class="f_title" style="background-position:0 -147px"></a>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <a href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></a>
+                <a class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" =" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor4-->
+    <div id="floor1" floor_num="4">
+        <div id="floor1_c">
+            <a class="f_title" style="background-position:0 -196px"></a>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <a href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></a>
+                <a class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" =" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor5-->
+    <div id="floor1" floor_num="5">
+        <div id="floor1_c">
+            <a class="f_title" style="background-position:0 -245px"></a>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <a href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></a>
+                <a class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" =" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor6-->
+    <div id="floor1" floor_num="6">
+        <div id="floor1_c">
+            <a class="f_title" style="background-position:0 -294px"></a>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <a href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></a>
+                <a class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" =" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor7-->
+    <div id="floor1" floor_num="7">
+        <div id="floor1_c">
+            <a class="f_title" style="background-position:0 -147px"></a>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <a href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></a>
+                <a class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" =" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor8-->
+    <div id="floor1" floor_num="8">
+        <div id="floor1_c">
+            <a class="f_title" style="background-position:0 -196px"></a>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <a href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></a>
+                <a class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" =" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor9-->
+    <div id="floor1" floor_num="9">
+        <div id="floor1_c">
+            <a class="f_title" style="background-position:0 -245px"></a>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <a href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></a>
+                <a class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" =" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor10-->
+    <div id="floor1" floor_num="10">
+        <div id="floor1_c">
+            <a class="f_title" style="background-position:0 -294px"></a>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <a href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></a>
+                <a class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" =" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--floor11-->
+    <div id="floor1" floor_num="11">
+        <div id="floor1_c">
+            <a class="f_title" style="background-position:0 -294px"></a>
+            <div class="f_c_con" href="http://www.baidu.com">
+                <a href="http://www.baidu.com"><img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" /></a>
+                <a class="f_c_1 youyi" href="http://www.baidu.com">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">丽贝乐Libero</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            Comfort系列纸尿裤L56
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574befa3N0b81f0be.jpg" style="position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">吉列</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            吉列锋隐致顺动力剃须刀刮胡刀
+                        </div>
+                        <div class="price" style="text-align:left;">¥49 <span class="gone"> ¥294</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c0e3fN2cd2e690.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">柯克兰Kirkland</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            美国进口 柯克兰Kirkland 盐焗开心果
+                        </div>
+                        <div class="price" style="text-align:left;">¥149 <span class="gone"> ¥189</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574e5f73Na20f81a1.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">嘉实多</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            嘉实多(Castrol) 全合成机油 黑嘉 5W-30 SN级 1Qt 美国原装进口
+                        </div>
+                        <div class="price" style="text-align:left;">¥129 <span class="gone"> ¥194</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/57467190N66a5c777.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+            <div class="f_c_con">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">膳魔师（THERMOS）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            膳魔师（THERMOS）超级不锈钢超轻车载杯 时尚保温杯保冷杯随手杯 JNL-350 350ml SAX 天蓝色
+                        </div>
+                        <div class="price" style="text-align:left;">¥190.09 <span class="gone"> ¥501</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574c312aN168f4ce9.png" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" =" />
+                </a>
+            </div>
+            <div class="f_c_con" style="border-width:0 0 1px 0">
+                <img src="/Content/Image/Index/1.png" style="display:block;position:absolute;top:0;left:0;" />
+                <a class="f_c_1 youyi">
+                    <div style="width:200px;height:70.1px;position:absolute;top:60px;left:25px;color:black;">
+                        <div style="width:200px;height:16px;line-height:16px;font-size:14px;font-weight:700;">万宝龙（MontBlanc）</div>
+                        <div style="margin: 8px 5px 16px 0;font-size: 12px;width: 195px;height: 15px;line-height: 15px;overflow: hidden;cursor: pointer;">
+                            万宝龙（MontBlanc）矩形针式带扣皮带/腰带
+                        </div>
+                        <div class="price" style="text-align:left;">¥1099 <span class="gone"> ¥2200</span></div>
+                    </div>
+                    <img src="/Content/Image/Index/574bb053N6eb61f6d.jpg" style="width:160px;height:160px;overflow:hidden;position:absolute;right:20px;top:15px;" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+    <!--end-->
+    <!--电梯-->
+    <div id="go-top" class="elev">
+        <a class="floor" style="border-top:0;" floor_num="1">奶粉营养</a>
+        <a class="floor" floor_num="2">尿裤洗护</a>
+        <a class="floor" floor_num="3">数码电器</a>
+        <a class="floor" floor_num="4">营养保健</a>
+        <a class="floor" floor_num="5">美妆个护</a>
+        <a class="floor" floor_num="6">全球美食</a>
+        <a class="floor" floor_num="7">钟表奢品</a>
+        <a class="floor" floor_num="8">服饰奢品</a>
+        <a class="floor" floor_num="9">家居厨具</a>
+        <a class="floor" floor_num="10">汽车用品</a>
+        <a class="floor" floor_num="11">全球名店</a>
+        <a class="floor go-top" style="cursor:pointer;background-color:#863177;color:white;text-align:center;line-height:45px;font-size:15px;height:45px;">
+            <span>TOP</span>
+        </a>
+    </div>
+    <!--end-->
+    <!--bottom-->
+    <div id="bottom">
+        <div id="bottom_t">
+            <img src="/Content/Image/Index/bottom.jpg" />
+        </div>
+        <div id="bottom_d">
+            <div id="bottom_d_c">
+                <div id="logobottom">
+                    <img src="/Content/Image/Index/foot-logo.jpg" />
+                </div>
+                <ul>
+                    <li class="b_d_l">
+                        <span class="b_d_l_t">海外保证</span>
+                        <a class="b_d_l_a" href="http://www.baidu.com">正品保证</a>
+                        <a class="b_d_l_a" href="http://www.baidu.com">海外直供</a>
+                    </li>
+                    <li class="b_d_l">
+                        <span class="b_d_l_t">购物指南</span>
+                        <a class="b_d_l_a" href="http://www.baidu.com">购物流程</a>
+                        <a class="b_d_l_a" href="http://www.baidu.com">购物须知</a>
+                        <a class="b_d_l_a" href="http://www.baidu.com">售后规则</a>
+                        <a class="b_d_l_a" href="http://www.baidu.com">帮助中心</a>
+                    </li>
+                    <li class="b_d_l">
+                        <span class="b_d_l_t">支付方式</span>
+                        <a class="b_d_l_a" href="http://www.baidu.com">京东支付</a>
+                    </li>
+                    <li class="b_d_l">
+                        <span class="b_d_l_t">商家服务</span>
+                        <a class="b_d_l_a" href="http://www.baidu.com">平台规则</a>
+                        <a class="b_d_l_a" href="http://www.baidu.com">商家入驻</a>
+                        <a class="b_d_l_a" href="http://www.baidu.com">联系我们</a>
+                    </li>
+                    <li class="b_d_l">
+                        <span class="b_d_l_t">专属客服</span>
+                        <em>客服电话400-606-9933</em>
+                        <em>客服时间9:00-22:00</em>
+                        <em>在线客服9:00-22:00</em>
+                        <a class="b_d_l_a" href="http://www.baidu.com">在线客服</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--end-->
+</body>
+</html>
